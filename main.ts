@@ -8,6 +8,7 @@ namespace SpriteKind {
     export const Ghost = SpriteKind.create()
     export const Heart = SpriteKind.create()
 }
+assets.image`assset`
 // To-do:
 // 
 // - Fix room skips
