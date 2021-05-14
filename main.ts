@@ -8,7 +8,6 @@ namespace SpriteKind {
     export const Ghost = SpriteKind.create()
     export const Heart = SpriteKind.create()
 }
-assets.image`assset`
 // To-do:
 // 
 // - Fix room skips
@@ -55,7 +54,7 @@ function loadMap () {
         if (currentLocationCol == 0) {
         	
         } else if (currentLocationCol == 1) {
-            tiles.setSmallTilemap(tilemap`level1`)
+            tiles.setSmallTilemap(tilemap`level142`)
         } else if (currentLocationCol == 2) {
             tiles.setSmallTilemap(tilemap`level30`)
         } else if (currentLocationCol == 3) {
@@ -301,7 +300,7 @@ function loadMap () {
             tiles.destroySpritesOfKind(SpriteKind.Gem)
         }
     }
-    for (let value of tiles.getTilesByType(assets.tile`myTile34`)) {
+    for (let value3 of tiles.getTilesByType(assets.tile`myTile34`)) {
         heart = sprites.create(assets.image`heart_full`, SpriteKind.Heart)
         animation.runMovementAnimation(
         heart,
@@ -309,28 +308,28 @@ function loadMap () {
         2000,
         true
         )
-        tiles.placeOnTile(heart, value)
-        tiles.setTileAt(value, assets.tile`myTile`)
+        tiles.placeOnTile(heart, value3)
+        tiles.setTileAt(value3, assets.tile`myTile`)
     }
     foundString = "" + currentLocationCol + "," + currentLocationRow
-    for (let value2 of heartsFound) {
-        if (value2 == foundString) {
+    for (let value22 of heartsFound) {
+        if (value22 == foundString) {
             tiles.destroySpritesOfKind(SpriteKind.Heart)
         }
     }
     if (bouldersFallen) {
         tiles.coverAllTiles(assets.tile`myTile12`, assets.tile`myTile17`)
-        for (let value3 of tiles.getTilesByType(assets.tile`myTile12`)) {
-            tiles.setWallAt(value3, true)
+        for (let value32 of tiles.getTilesByType(assets.tile`myTile12`)) {
+            tiles.setWallAt(value32, true)
         }
     }
     if (hasHookshot) {
         tiles.replaceAllTiles(assets.tile`myTile21`, assets.tile`myTile`)
     }
     if (collapseCracks) {
-        for (let value32 of tiles.getTilesByType(assets.tile`myTile19`)) {
-            tiles.setTileAt(value32, assets.tile`myTile`)
-            tiles.setWallAt(value32, false)
+        for (let value322 of tiles.getTilesByType(assets.tile`myTile19`)) {
+            tiles.setTileAt(value322, assets.tile`myTile`)
+            tiles.setWallAt(value322, false)
         }
     }
     thePlayer.setKind(SpriteKind.Player)
@@ -985,9 +984,9 @@ game.onUpdate(function () {
     }
 })
 game.onUpdate(function () {
-    for (let value22 of passableTiles) {
-        for (let loc of tiles.getTilesByType(value22)) {
-            if (thePlayer.tileKindAt(TileDirection.Bottom, value22) && !(controller.down.isPressed()) || !(canMove)) {
+    for (let value222 of passableTiles) {
+        for (let loc of tiles.getTilesByType(value222)) {
+            if (thePlayer.tileKindAt(TileDirection.Bottom, value222) && !(controller.down.isPressed()) || !(canMove)) {
                 tiles.setWallAt(loc, true)
             } else if (controller.down.isPressed()) {
                 tiles.setWallAt(loc, false)
@@ -1040,9 +1039,9 @@ game.onUpdateInterval(1000, function () {
 game.onUpdateInterval(1500, function () {
     let isHookshotActive = 0
     if (!(isHookshotActive)) {
-        for (let value322 of tiles.getTilesByType(assets.tile`myTile14`)) {
+        for (let value3222 of tiles.getTilesByType(assets.tile`myTile14`)) {
             arrow = sprites.create(assets.image`arrow_right`, SpriteKind.Projectile)
-            tiles.placeOnTile(arrow, value322)
+            tiles.placeOnTile(arrow, value3222)
             arrow.vx = -100
             arrow.setFlag(SpriteFlag.DestroyOnWall, true)
         }
