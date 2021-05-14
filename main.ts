@@ -8,13 +8,6 @@ namespace SpriteKind {
     export const Ghost = SpriteKind.create()
     export const Heart = SpriteKind.create()
 }
-// To-do:
-// 
-// - Fix room skips
-// 
-// - Add recovery hearts
-// 
-// - Add detail to maps
 function initTimer () {
     isTimerOn = true
 }
@@ -30,6 +23,7 @@ function loadMap () {
     tiles.destroySpritesOfKind(SpriteKind.Gem)
     tiles.destroySpritesOfKind(SpriteKind.Boulder)
     tiles.destroySpritesOfKind(SpriteKind.Ghost)
+    tiles.destroySpritesOfKind(SpriteKind.Heart)
     if (currentLocationRow == 0) {
         if (currentLocationCol == 0) {
         	
@@ -873,10 +867,10 @@ assets.animation`player_left_anim`,
 500,
 character.rule(Predicate.FacingLeft)
 )
-addTimerEvent(180, function(){
+addTimerEvent(120, function(){
     bouldersFallen = true
 })
-addTimerEvent(120, function(){
+addTimerEvent(180, function(){
     collapseCracks = true
 })
 tiles.setSmallTilemap(tilemap`level2`)
