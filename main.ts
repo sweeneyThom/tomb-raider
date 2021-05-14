@@ -302,13 +302,13 @@ function loadMap () {
     }
     for (let value3 of tiles.getTilesByType(assets.tile`myTile34`)) {
         heart = sprites.create(assets.image`heart_full`, SpriteKind.Heart)
+        tiles.placeOnTile(heart, value3)
         animation.runMovementAnimation(
         heart,
         "l 0 -8, l 0 8",
         2000,
         true
         )
-        tiles.placeOnTile(heart, value3)
         tiles.setTileAt(value3, assets.tile`myTile`)
     }
     foundString = "" + currentLocationCol + "," + currentLocationRow
@@ -488,9 +488,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, 
         . . 7 7 7 . . . 
         `, SpriteKind.Food)
     hookshot.bottom = thePlayer.top
+    hookshot.x = thePlayer.x
     story.startCutscene(function () {
         story.printDialog("YOU FOUND THE HOOKSHOT!", 80, 20, 40, 120, 15, 10)
-        story.printDialog("PRESS 'B' TO AIM, THEN PRESS 'B' AGAIN TO PULL YOURSELF TO A TARGET.", 80, 20, 40, 120, 15, 10)
+        story.printDialog("PRESS 'B' TO AIM, THEN PRESS 'B' AGAIN TO PULL YOURSELF TO A NEARBY TARGET.", 80, 20, 40, 120, 15, 10)
         story.printDialog("IT WILL ONLY WORK IN SOME PLACES, THOUGH.", 80, 20, 40, 120, 15, 10)
         hookshot.destroy()
         character.setCharacterAnimationsEnabled(thePlayer, true)
