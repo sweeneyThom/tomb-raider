@@ -17,7 +17,7 @@ scene.createRenderable(13, function(target: Image, camera: scene.Camera) {
 })
 
 controller.B.onEvent(ControllerButtonEvent.Pressed, function() {
-    if(hasHookshot){
+    if(hasHookshot && canMove){
         if(isHookshotActive){
             isHookshotActive = false
             for(let sprite of getAllSprites()){

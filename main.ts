@@ -8,6 +8,7 @@ namespace SpriteKind {
     export const Ghost = SpriteKind.create()
     export const Heart = SpriteKind.create()
 }
+// Palette: https://lospec.com/palette-list/steam-lords
 function initTimer () {
     isTimerOn = true
 }
@@ -867,7 +868,7 @@ assets.animation`player_left_anim`,
 500,
 character.rule(Predicate.FacingLeft)
 )
-addTimerEvent(120, function(){
+addTimerEvent(60, function(){
     bouldersFallen = true
 })
 addTimerEvent(180, function(){
